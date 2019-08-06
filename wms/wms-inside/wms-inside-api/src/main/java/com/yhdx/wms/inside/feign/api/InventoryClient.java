@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.Collection;
 import java.util.List;
 
-@FeignClient(value = "${wms-inventorying-service.name}")
+@FeignClient(value = "${wms-inventory-service.name}")
 public interface InventoryClient {
 
     @PostMapping("inventory/update")

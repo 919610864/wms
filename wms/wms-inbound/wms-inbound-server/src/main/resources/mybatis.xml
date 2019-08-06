@@ -3,9 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-    <typeHandlers>
-        <typeHandler handler="tu.wms.framework.mybatis.typehandler.CodeEnumTypeHandler"
-                     javaType="tu.wms.inventorying.domain.InventoryOperationTypeEnum"/>
-    </typeHandlers>
+
 
 </configuration>
