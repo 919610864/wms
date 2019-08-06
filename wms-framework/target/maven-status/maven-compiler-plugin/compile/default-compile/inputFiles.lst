@@ -1,0 +1,16 @@
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/CommonConstants.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/autoconfiguration/FrameworkConfiguration.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/tuples/Triple.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/mybatis/typehandler/CodeEnumSerializer.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/Result.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/json/CodeEnumJsonSerializer.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/tuples/Quadruple.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/CodeEnum.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/aop/DuplicateKeyCheck.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/json/CodeEnumJsonDeserializer.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/mybatis/typehandler/CodeEnumTypeHandler.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/LockableQuery.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/aop/DuplicateKeyCheckAspect.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/tuples/Pair.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/model/tuples/Single.java
+/Users/Syenging/Documents/idea/workspacke tools/wms-framework/src/main/java/com/yhdx/wms/framework/util/BeanUtilsEx.java

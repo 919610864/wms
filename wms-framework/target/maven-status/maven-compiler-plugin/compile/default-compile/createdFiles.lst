@@ -1,0 +1,16 @@
+com/yhdx/wms/framework/json/CodeEnumJsonSerializer.class
+com/yhdx/wms/framework/aop/DuplicateKeyCheck.class
+com/yhdx/wms/framework/model/tuples/Quadruple.class
+com/yhdx/wms/framework/util/BeanUtilsEx.class
+com/yhdx/wms/framework/model/LockableQuery.class
+com/yhdx/wms/framework/model/CommonConstants.class
+com/yhdx/wms/framework/json/CodeEnumJsonDeserializer.class
+com/yhdx/wms/framework/model/tuples/Pair.class
+com/yhdx/wms/framework/model/tuples/Single.class
+com/yhdx/wms/framework/mybatis/typehandler/CodeEnumTypeHandler.class
+com/yhdx/wms/framework/model/CodeEnum.class
+com/yhdx/wms/framework/model/Result.class
+com/yhdx/wms/framework/autoconfiguration/FrameworkConfiguration.class
+com/yhdx/wms/framework/aop/DuplicateKeyCheckAspect.class
+com/yhdx/wms/framework/mybatis/typehandler/CodeEnumSerializer.class
+com/yhdx/wms/framework/model/tuples/Triple.class
