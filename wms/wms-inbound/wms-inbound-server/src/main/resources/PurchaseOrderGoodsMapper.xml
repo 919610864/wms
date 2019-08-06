@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yhdx.wms.inbound.dao.mapper.PurchaseOrderGoodsMapper">
+<mapper namespace="com.yhdx.wms.inbound.server.dao.mapper.PurchaseOrderGoodsMapper">
 
     <insert id="saveAllPurchaseOrderGoods">
         INSERT INTO `purchase_order_goods`
@@ -18,7 +18,7 @@
         </foreach>
     </insert>
 
-    <resultMap id="PurchaseOrderGoodsResultMap" type="com.yhdx.wms.inbound.domain.po.PurchaseOrderGoodsPO">
+    <resultMap id="PurchaseOrderGoodsResultMap" type="com.yhdx.wms.inbound.server.domain.po.PurchaseOrderGoodsPO">
         <id property="id" column="id"/>
         <result property="orderId" column="order_id"/>
         <result property="goodsId" column="goods_id"/>

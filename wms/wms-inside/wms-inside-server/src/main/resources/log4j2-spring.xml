@@ -10,7 +10,7 @@
 
     </appenders>
     <loggers>
-        <AsyncLogger name="com.yhdx.wms.inside" level="DEBUG" additivity="false">
+        <AsyncLogger name="com.yhdx.wms.inside.server" level="DEBUG" additivity="false">
             <appender-ref ref="Console"/>
         </AsyncLogger>
         <AsyncRoot level="INFO">

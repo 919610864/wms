@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yhdx.wms.inside.dao.mapper.InventoryMapper">
+<mapper namespace="com.yhdx.wms.inside.server.dao.mapper.InventoryMapper">
 
     <insert id="saveInventory">
         INSERT INTO `inventory`
@@ -81,7 +81,7 @@
         </foreach>
     </update>
 
-    <resultMap id="InventoryResultMap" type="com.yhdx.wms.inside.domain.po.InventoryPO">
+    <resultMap id="InventoryResultMap" type="com.yhdx.wms.inside.server.domain.po.InventoryPO">
         <id property="inventoryId.coordX" column="coord_x"/>
         <id property="inventoryId.coordY" column="coord_y"/>
         <id property="inventoryId.coordZ" column="coord_z"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yhdx.wms.inbound.dao.mapper.PurchaseOrderMapper">
+<mapper namespace="com.yhdx.wms.inbound.server.dao.mapper.PurchaseOrderMapper">
 
     <insert id="savePurchaseOrder" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO `purchase_order`
@@ -14,7 +14,7 @@
         )
     </insert>
 
-    <resultMap id="PurchaseOrderResultMap" type="com.yhdx.wms.inbound.domain.po.PurchaseOrderPO">
+    <resultMap id="PurchaseOrderResultMap" type="com.yhdx.wms.inbound.server.domain.po.PurchaseOrderPO">
         <id property="id" column="id"/>
         <result property="creationTime" column="creation_time"/>
     </resultMap>
