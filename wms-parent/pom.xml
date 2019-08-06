@@ -20,7 +20,7 @@
         <commons-pool2.version>2.6.0</commons-pool2.version>
         <disruptor.version>3.4.2</disruptor.version>
         <aspectjweaver.version>1.9.1</aspectjweaver.version>
-        <seata.version>0.6.1</seata.version>
+        <seata.version>0.7.1</seata.version>
         <springfox-swagger2-version>2.6.1</springfox-swagger2-version>
         <springfox-swagger-ui-version>2.6.1</springfox-swagger-ui-version>
     </properties>
