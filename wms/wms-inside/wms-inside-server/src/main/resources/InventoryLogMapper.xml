@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhdx.wms.inside.dao.mapper.InventoryLogMapper">
+
+    <insert id="saveInventoryLog">
+        INSERT INTO `inventory_log`
+        (
+        `operation_type`,
+        `operation_id`,
+        `biz_id`,
+        `coord_x`,
+        `coord_y`,
+        `coord_z`,
+        `goods_id`,
+        `count`,
+        `allocation_count`,
+        `change_count`,
+        `creation_time`
+        )
+        VALUES
+        (
+        #{operationType},
+        #{operationId},
+        #{bizId},
+        #{inventoryId.coordX},
+        #{inventoryId.coordY},
+        #{inventoryId.coordZ},
+        #{inventoryId.goodsId},
+        #{count},
+        #{allocationCount},
+        #{changeCount},
+        #{creationTime}
+        )
+    </insert>
+
+    <insert id="saveAllInventoryLog">
+        INSERT INTO `inventory_log`
+        (
+        `operation_type`,
+        `operation_id`,
+        `biz_id`,
+        `coord_x`,
+        `coord_y`,
+        `coord_z`,
+        `goods_id`,
+        `count`,
+        `allocation_count`,
+        `change_count`,
+        `creation_time`
+        )
+        VALUES
+        <foreach collection="collection" item="item" open="(" close=")" separator="),(">
+        #{item.operationType},
+        #{item.operationId},
+        #{item.bizId},
+        #{item.inventoryId.coordX},
+        #{item.inventoryId.coordY},
+        #{item.inventoryId.coordZ},
+        #{item.inventoryId.goodsId},
+        #{item.count},
+        #{item.allocationCount},
+        #{item.changeCount},
+        #{item.creationTime}
+        </foreach>
+    </insert>
+
+</mapper>
