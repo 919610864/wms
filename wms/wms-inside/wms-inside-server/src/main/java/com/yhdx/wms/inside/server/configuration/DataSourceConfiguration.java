@@ -5,6 +5,9 @@ import io.seata.rm.datasource.DataSourceProxy;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +15,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
 public class DataSourceConfiguration {
+
+    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfiguration.class);
 
     @Value("${mybatis.mapper-locations}")
     private String mapperLocations;
@@ -25,8 +31,7 @@ public class DataSourceConfiguration {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DruidDataSource dataSource() {
-        DruidDataSource datasource = new DruidDataSource();
-        return datasource;
+        return new DruidDataSource();
     }
 
     @Primary
@@ -36,19 +41,25 @@ public class DataSourceConfiguration {
     }
 
     @Bean
+    public DataSourceTransactionManager transactionManager(DataSourceProxy druidDataSource) {
+        logger.info("初始化事务管理器:PlatformTransactionManager");
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(druidDataSource);
+        return transactionManager;
+    }
+
+    @Bean
     public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSourceProxy);
-        bean.setTransactionFactory(new JdbcTransactionFactory());
+        SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+        sqlSessionFactory.setDataSource(dataSourceProxy);
+        sqlSessionFactory.setTransactionFactory(new SpringManagedTransactionFactory());
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            bean.setConfigLocation(resolver.getResource(configLocation));
-            bean.setMapperLocations(resolver.getResources(mapperLocations));
-
-            return bean.getObject();
+            sqlSessionFactory.setConfigLocation(resolver.getResource(configLocation));
+            sqlSessionFactory.setMapperLocations(resolver.getResources(mapperLocations));
+            return sqlSessionFactory.getObject();
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
     }
-
 }
