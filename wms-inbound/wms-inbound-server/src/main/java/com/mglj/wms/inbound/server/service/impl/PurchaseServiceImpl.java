@@ -49,7 +49,7 @@ public class PurchaseServiceImpl implements PurchaseService , InitializingBean {
 
 
     @Override
-    @Auditable(action = INBOUND_ORDER)
+    @Auditable(action = INBOUND)
     public void savePurchaseOrder(SavePurchaseOrderRequest savePurchaseOrderRequest) {
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.setCreationTime(LocalDateTime.now());

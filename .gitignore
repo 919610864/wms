@@ -13,6 +13,10 @@
 # Package Files #
 *.jar
 *.war
+<<<<<<< HEAD
+=======
+*.nar
+>>>>>>> 8cdb0ac80a97dd49c8f862ee696b2ddea52f5c96
 *.ear
 *.zip
 *.tar.gz
@@ -20,6 +24,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 
 target/
 pom.xml.tag
@@ -143,3 +148,5 @@ node_modules/
 dist/
 npm-debug.log
 .idea
+=======
+>>>>>>> 8cdb0ac80a97dd49c8f862ee696b2ddea52f5c96
