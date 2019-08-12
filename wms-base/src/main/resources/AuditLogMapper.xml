@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mglj.base.dao.api.AuditLogDao">
+
+	<resultMap id="AuditLogResultMap" type="com.mglj.base.domain.AuditLog">
+        <result property="id" column="id"/>
+        <result property="warehouseId" column="warehouse_id"/>
+        <result property="warehouseName" column="warehouse_name"/>
+        <result property="resourceCode" column="resource_code"/>
+        <result property="resourceName" column="resource_name"/>
+        <result property="group" column="group"/>
+        <result property="actionCode" column="action_code"/>
+        <result property="actionName" column="action_name"/>
+        <result property="billId" column="bill_id"/>
+        <result property="billCode" column="bill_code"/>
+        <result property="description" column="description"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="cost" column="cost"/>
+	</resultMap>
+
+	<sql id="columns">
+		id,warehouse_id,warehouse_name,resource_code,resource_name,`group`,action_code,action_name,bill_id,bill_code,description,user_id,user_name,create_time,cost
+	</sql>
+
+	<insert id="saveAuditLog">
+        INSERT INTO audit_log (
+        	id ,
+        	warehouse_id ,
+        	warehouse_name ,
+        	resource_code ,
+        	resource_name ,
+        	`group` ,
+        	action_code ,
+        	action_name ,
+        	bill_id ,
+        	bill_code ,
+        	description ,
+        	user_id ,
+        	user_name ,
+        	create_time ,
+        	cost
+        ) VALUES (
+        	#{id} ,
+        	#{warehouseId} ,
+        	#{warehouseName} ,
+        	#{resourceCode} ,
+        	#{resourceName} ,
+        	#{group} ,
+        	#{actionCode} ,
+        	#{actionName} ,
+        	#{billId} ,
+        	#{billCode} ,
+        	#{description} ,
+        	#{userId} ,
+        	#{userName} ,
+        	#{createTime} ,
+        	#{cost}
+        )
+	</insert>
+
+	<insert id="saveAllAuditLog">
+        INSERT INTO audit_log (
+        	id ,
+        	warehouse_id ,
+        	warehouse_name ,
+        	resource_code ,
+        	resource_name ,
+        	`group` ,
+        	action_code ,
+        	action_name ,
+        	bill_id ,
+        	bill_code ,
+        	description ,
+        	user_id ,
+        	user_name ,
+        	create_time ,
+        	cost
+        ) VALUES
+        <foreach collection="collection" item="item" open="(" close=")" separator="),(">
+        	#{item.id} ,
+        	#{item.warehouseId} ,
+        	#{item.warehouseName} ,
+        	#{item.resourceCode} ,
+        	#{item.resourceName} ,
+        	#{item.group} ,
+        	#{item.actionCode} ,
+        	#{item.actionName} ,
+        	#{item.billId} ,
+        	#{item.billCode} ,
+        	#{item.description} ,
+        	#{item.userId} ,
+        	#{item.userName} ,
+        	#{item.createTime} ,
+        	#{item.cost}
+        </foreach>
+	</insert>
+
+	<sql id="findWhere">
+		<where>
+			<if test="createTimeStart !=null">
+				AND create_time >= #{createTimeStart}
+		    </if>
+		    <if test="createTimeEnd !=null">
+				AND create_time &lt;= #{createTimeEnd}
+		    </if>
+	        <if test="warehouseId !=null">
+				AND warehouse_id = #{warehouseId}
+			</if>
+	        <if test="resourceCode !=null and resourceCode != ''">
+				AND resource_code = #{resourceCode}
+			</if>
+	        <if test="actionCode !=null and actionCode != ''">
+				AND action_code = #{actionCode}
+			</if>
+	        <if test="billCode !=null and billCode != ''">
+				AND bill_code = #{billCode}
+			</if>
+	        <if test="userName !=null and userName != ''">
+				AND user_name = #{userName}
+			</if>
+		</where>
+	</sql>
+
+	<select id="listAuditLog" resultMap="AuditLogResultMap">
+		SELECT <include refid="columns" />
+		FROM audit_log
+		INNER JOIN (
+		SELECT id
+		FROM audit_log
+		<include refid="findWhere"/>
+		ORDER BY id DESC
+		LIMIT #{offset}, #{rows}
+		) AS t
+		USING ( id )
+		<if test="sortColumns != null and sortColumns != ''">
+			ORDER BY #{sortColumns}
+		</if>
+    </select>
+
+    <select id="countAuditLog" resultType="long">
+        SELECT count(*) FROM audit_log
+		<include refid="findWhere"/>
+    </select>
+
+</mapper>
+
