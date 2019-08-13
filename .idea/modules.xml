@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wms/wms.iml" filepath="$PROJECT_DIR$/wms/wms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms-framework/wms-framework.iml" filepath="$PROJECT_DIR$/wms-framework/wms-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inbound/wms-inbound.iml" filepath="$PROJECT_DIR$/wms/wms-inbound/wms-inbound.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inbound/wms-inbound-api/wms-inbound-api.iml" filepath="$PROJECT_DIR$/wms/wms-inbound/wms-inbound-api/wms-inbound-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inbound/wms-inbound-server/wms-inbound-server.iml" filepath="$PROJECT_DIR$/wms/wms-inbound/wms-inbound-server/wms-inbound-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inside/wms-inside.iml" filepath="$PROJECT_DIR$/wms/wms-inside/wms-inside.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inside/wms-inside-api/wms-inside-api.iml" filepath="$PROJECT_DIR$/wms/wms-inside/wms-inside-api/wms-inside-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms-inside/wms-inside-server/wms-inside-server.iml" filepath="$PROJECT_DIR$/wms/wms-inside/wms-inside-server/wms-inside-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms-parent/wms-parent.iml" filepath="$PROJECT_DIR$/wms-parent/wms-parent.iml" />
+    </modules>
+  </component>
+</project>

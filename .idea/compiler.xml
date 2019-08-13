@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wms-framework" />
+        <module name="wms-inbound-api" />
+        <module name="wms-inbound-server" />
+        <module name="wms-inside-api" />
+        <module name="wms-inside-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wms" target="1.8" />
+      <module name="wms-framework" target="1.8" />
+      <module name="wms-inbound" target="1.8" />
+      <module name="wms-inbound-api" target="1.8" />
+      <module name="wms-inbound-server" target="1.8" />
+      <module name="wms-inside" target="1.8" />
+      <module name="wms-inside-api" target="1.8" />
+      <module name="wms-inside-server" target="1.8" />
+      <module name="wms-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
