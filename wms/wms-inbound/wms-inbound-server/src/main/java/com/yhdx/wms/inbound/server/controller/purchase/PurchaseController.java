@@ -26,9 +26,9 @@ public class PurchaseController {
     }
 
     @ApiOperation(value="上架采购单", notes="上架采购单")
-    @ApiImplicitParam(name = "purchaseOrderId", value = "采购单ID", required = true, dataType = "Long", paramType = "path")
+    @ApiImplicitParam(name = "purchaseOrderId", value = "采购单ID", required = true, dataType = "Long", paramType = "query")
     @RequestMapping(value = "purchase-order/shelve", method = RequestMethod.GET)
-    public Result<?> shelvePurchaseOrder(Long purchaseOrderId) {
+    public Result<?> shelvePurchaseOrder(@RequestParam("purchaseOrderId") Long purchaseOrderId) {
         purchaseService.shelvePurchaseOrder(purchaseOrderId);
         return Result.ok();
     }
