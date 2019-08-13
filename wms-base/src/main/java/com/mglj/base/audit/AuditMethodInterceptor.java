@@ -64,10 +64,10 @@ public class AuditMethodInterceptor implements MethodInterceptor, ApplicationCon
 				auditLog.setBillId(AuditContext.getBillId());
 				auditLog.setBillCode(AuditContext.getBillCode());
 				auditLog.setDescription(AuditContext.getDescription());
-//				auditLog.setWarehouseId(UserContext.getWarehouseId());
-//				auditLog.setWarehouseName(UserContext.getWarehouseName());
-//				auditLog.setUserId(UserContext.getUserId());
-//				auditLog.setUserName(UserContext.getUserName());
+			    auditLog.setWarehouseId(100000020L);
+                auditLog.setWarehouseName("自营仓");
+                auditLog.setUserId(9527L);
+                auditLog.setUserName("Thirtyfat");
 //				if(auditLog.getWarehouseId() == null) {
 //					UserSession userSession = AuditContext.getCurrentUserSession();
 //					if(userSession != null) {

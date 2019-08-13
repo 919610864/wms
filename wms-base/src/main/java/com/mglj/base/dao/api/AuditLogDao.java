@@ -4,6 +4,7 @@ package com.mglj.base.dao.api;
 
 import com.mglj.base.domain.AuditLog;
 import com.mglj.base.domain.AuditLogQuery;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @author zsp
  * @date 2017-10-26
  */
+@Component
 public interface AuditLogDao {
 	
 	/**

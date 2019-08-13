@@ -13,7 +13,6 @@ import java.util.List;
  * @author zsp
  *
  */
-@Component
 public interface AuditLogManager {
 	
 	/**
