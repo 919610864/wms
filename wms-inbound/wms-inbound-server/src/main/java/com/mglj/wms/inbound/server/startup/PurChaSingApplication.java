@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(scanBasePackages = {"com.mglj.wms.framework","com.mglj.wms.inbound.server","com.mglj.base.audit"})
 @EnableDiscoveryClient
 @EnableFeignClients({"com.mglj.wms.inside.feign.api"})
-@MapperScan(basePackages = {"com.mglj.wms.inbound.server.dao.mapper","com.mglj.base.dao.api"})
+@MapperScan(basePackages = {"com.mglj.wms.inbound.server.dao.mapper","com.mglj.base.dao.api","com.mglj.base.service.api"})
 @EnableTransactionManagement
 @EnableSwagger2
 @ComponentScan("com.mglj")

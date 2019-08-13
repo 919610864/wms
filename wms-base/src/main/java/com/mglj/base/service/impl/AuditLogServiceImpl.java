@@ -5,6 +5,7 @@ import com.mglj.base.domain.AuditLog;
 import com.mglj.base.domain.AuditLogQuery;
 import com.mglj.base.manager.api.AuditLogManager;
 import com.mglj.base.service.api.AuditLogService;
+import com.mglj.base.service.api.GidService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +15,21 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class AuditLogServiceImpl implements AuditLogService {
-	
-	@Autowired
-	private AuditLogManager auditLogManager;
-
-//	@Autowired
-//	private GidService gidService;
-
+public class AuditLogServiceImpl implements AuditLogService{
 
 	private static final Logger logger = LoggerFactory.getLogger(AuditLogServiceImpl.class);
 
+
+	@Autowired
+	private AuditLogManager auditLogManager;
+
+	@Autowired
+	private GidService gidService;
+
+
 	@Override
 	public void saveAuditLog(AuditLog auditLog) {
-		auditLog.setId(System.currentTimeMillis());
+		auditLog.setId(gidService.generate());
 		if(auditLog.getWarehouseId() == null) {
 			auditLog.setWarehouseId(0L);
 		}
@@ -51,5 +53,6 @@ public class AuditLogServiceImpl implements AuditLogService {
 	public long countAuditLog(AuditLogQuery query) {
 		return auditLogManager.countAuditLog(query);
 	}
+
 
 }

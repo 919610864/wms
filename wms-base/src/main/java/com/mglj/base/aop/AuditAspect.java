@@ -28,12 +28,13 @@ public class AuditAspect implements ApplicationContextAware {
 
     private static final Logger logger = LoggerFactory.getLogger(AuditAspect.class);
 
-    private ApplicationContext context;
+    private ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(ApplicationContext context) throws BeansException {
-        this.context = context;
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
+
 
     @Pointcut("@annotation(com.mglj.base.audit.Auditable)")
     public void execute() {
@@ -64,7 +65,7 @@ public class AuditAspect implements ApplicationContextAware {
             final Auditable methodAuditable = method.getAnnotation(Auditable.class);
             logger.info("method Audi table {} ", methodAuditable);
             String actionCode = methodAuditable.action();
-            Resource resource = context.getBean(AuditManager.class).findResource(clazz);
+            Resource resource = applicationContext.getBean(AuditManager.class).findResource(clazz);
             if(resource != null) {
                 Action action = resource.findAction(actionCode);
                 AuditLog auditLog = new AuditLog();
@@ -91,7 +92,8 @@ public class AuditAspect implements ApplicationContextAware {
 //                }
                 auditLog.setCreateTime(new Date());
                 auditLog.setCost((int)cost);
-                AuditLogService contextBean = context.getBean(AuditLogService.class);
+                Class<AuditLogService> aClass = AuditLogService.class;
+                AuditLogService contextBean = applicationContext.getBean(aClass);
                 contextBean.saveAuditLog(auditLog);
             }
         } catch(Exception ex) {

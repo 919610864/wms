@@ -22,7 +22,14 @@ public class AuditManager implements DisposableBean {
 	public AuditManager() {
 		groupSet.add(Resource.DEFAULT_GROUP);
 	}
-	
+
+	@Override
+	public void destroy() throws Exception {
+		groupSet.clear();
+		resourceMap.clear();
+	}
+
+
 	/**
 	 * 添加一个审计资源
 	 * 
@@ -98,10 +105,5 @@ public class AuditManager implements DisposableBean {
 		return new ArrayList<String>(groupSet);
 	}
 
-	@Override
-	public void destroy() throws Exception {
-		groupSet.clear();
-		resourceMap.clear();
-	}
 
 }
